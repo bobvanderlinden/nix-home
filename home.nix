@@ -178,12 +178,6 @@
       bindkey '^F' history-incremental-pattern-search-forward
     '';
   };
-  xresources.properties = {
-    "URxvt*font" = "xft:DejaVu Sans Mono for Powerline-10";
-    "URxvt.keysym.Shift-Control-V" = "eval:paste_clipboard";
-    "URxvt.keysym.Shift-Control-C" = "eval:selection_to_clipboard";
-    "URxvt.perl-ext-common" = "resize-font";
-  };
   qt = {
     enable = true;
     useGtkTheme = true;

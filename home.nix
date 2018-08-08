@@ -40,6 +40,10 @@ in
     baobab
     gitAndTools.hub
     coin
+    travis
+    git-cola
+    gnome3.file-roller
+    insomnia
   ];
   home.file.".config/termite/config".text = ''
     [options]

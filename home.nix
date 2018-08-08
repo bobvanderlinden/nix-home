@@ -163,6 +163,7 @@ in
     };
   };
   programs.ssh.enable = true;
+  programs.fzf.enable = true;
   programs.vim.enable = true;
   programs.zsh = {
     enable = true;

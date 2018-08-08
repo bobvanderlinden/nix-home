@@ -45,6 +45,20 @@ in
     gnome3.file-roller
     insomnia
   ];
+  home.file.".config/mimeapps.list".text = ''
+    [Default Applications]
+    image/png=${pkgs.viewnior}/share/applications/viewnior.desktop
+    image/jpg=${pkgs.viewnior}/share/applications/viewnior.desktop
+    image/jpeg=${pkgs.viewnior}/share/applications/viewnior.desktop
+    text/html=${pkgs.chromium}/share/applications/chromium.desktop
+    text/plain=${pkgs.leafpad}/share/applications/leadpad.desktop
+    application/x-shellscript=${pkgs.vscode}/share/applications/code.desktop
+    application/x-python=${pkgs.vscode}/share/applications/code.desktop
+    application/x-php=${pkgs.vscode}/share/applications/code.desktop
+    application/xhtml+xml=${pkgs.chromium}/share/applications/chromium.desktop
+    application/pdf=${pkgs.chromium}/share/applications/chromium.desktop
+    application/x-compressed-tar=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
+  '';
   home.file.".config/termite/config".text = ''
     [options]
     font = DejaVu Sans Mono for Powerline
@@ -334,6 +348,8 @@ in
       core.editor = "${pkgs.vscode}/bin/code";
     };
   };
+  home.sessionVariables = {
+    BROWSER = "${pkgs.chromium}/bin/chromium";
   };
   programs.autorandr.enable = true;
   # programs.direnv.enable = true;

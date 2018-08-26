@@ -204,7 +204,7 @@ in
     enable = true;
     font = {
       name = "DejaVu Sans";
-      package = pkgs.powerline-fonts;
+      package = pkgs.dejavu_fonts;
     };
     iconTheme = {
       name = "Adwaita";

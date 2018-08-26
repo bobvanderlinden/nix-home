@@ -266,10 +266,10 @@ in
           { statusCommand = "${pkgs.i3status}/bin/i3status"; }
         ];
         keybindings = let mod = config.modifier; in {
-          "${mod}+t" = "exec ${pkgs.termite}/bin/termite";
-          "${mod}+w" = "exec ${pkgs.chromium}/bin/chromium";
-          "${mod}+e" = "exec ${pkgs.xfce.thunar}/bin/thunar";
-          "${mod}+q" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+          "${mod}+t" = "exec termite";
+          "${mod}+w" = "exec chromium";
+          "${mod}+e" = "exec thunar";
+          "${mod}+q" = "exec dmenu_run";
           "${mod}+c" = "kill";
 
           "${mod}+Shift+grave" = "move scratchpad";

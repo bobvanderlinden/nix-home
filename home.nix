@@ -1,5 +1,13 @@
 { pkgs, ... }:
 let
+  pkgsUnstable = import (
+    pkgs.fetchFromGitHub {
+      owner = "nixos";
+      repo = "nixpkgs";
+      rev = "962570e16d57564db7259c8b525cc5a0bc72fa17";
+      sha256 = "0j63cfibpaczaml0wdz8x54lcyznir4gri61m9scwvi7ylhcxj9z";
+    }
+  ) { };
   coinSound = pkgs.fetchurl {
     url = "https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav";
     sha256 = "18c7dfhkaz9ybp3m52n1is9nmmkq18b1i82g6vgzy7cbr2y07h93";
@@ -7,6 +15,7 @@ let
   coin = pkgs.writeShellScriptBin "coin" ''
      ${pkgs.sox}/bin/play --no-show-progress ${coinSound}
   '';
+  vscode = pkgsUnstable.vscode;
 in
 {
   home.packages = with pkgs; [
@@ -44,6 +53,8 @@ in
     git-cola
     gnome3.file-roller
     insomnia
+  ] ++ [
+    vscode
   ];
   home.file.".config/mimeapps.list".text = ''
     [Default Applications]
@@ -52,9 +63,9 @@ in
     image/jpeg=${pkgs.viewnior}/share/applications/viewnior.desktop
     text/html=${pkgs.chromium}/share/applications/chromium.desktop
     text/plain=${pkgs.leafpad}/share/applications/leadpad.desktop
-    application/x-shellscript=${pkgs.vscode}/share/applications/code.desktop
-    application/x-python=${pkgs.vscode}/share/applications/code.desktop
-    application/x-php=${pkgs.vscode}/share/applications/code.desktop
+    application/x-shellscript=${vscode}/share/applications/code.desktop
+    application/x-python=${vscode}/share/applications/code.desktop
+    application/x-php=${vscode}/share/applications/code.desktop
     application/xhtml+xml=${pkgs.chromium}/share/applications/chromium.desktop
     application/pdf=${pkgs.chromium}/share/applications/chromium.desktop
     application/x-compressed-tar=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
@@ -345,7 +356,7 @@ in
       recent-branches = "branch --sort=-committerdate";
     };
     extraConfig = {
-      core.editor = "${pkgs.vscode}/bin/code";
+      core.editor = "${vscode}/bin/code --wait";
     };
   };
   home.sessionVariables = {

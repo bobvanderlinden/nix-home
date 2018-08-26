@@ -258,6 +258,7 @@ in
     initExtra = ''
       volumeicon &
       keepassxc &
+      dropbox &
     '';
     windowManager.i3 = rec {
       enable = true;

@@ -358,6 +358,8 @@ in
     enable = true;
     userName = "Bob van der Linden";
     userEmail = "bobvanderlinden@gmail.com";
+    signing.signByDefault = true;
+    signing.key = "21198FFF4275C8197D723AD22A90361F99CF1795";
     aliases = {
 	    unstage = "reset HEAD --";
 	    pr = "pull --rebase";

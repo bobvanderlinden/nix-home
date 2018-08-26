@@ -20,6 +20,8 @@ in
 {
   home.packages = with pkgs; [
     pkgsUnstable.insomnia
+    fortune
+    cowsay
     htop
     gdb
     mplayer
@@ -41,11 +43,16 @@ in
     xfce.thunar
     volumeicon
     keepassxc
+    gnome3.dconf
+    jdk
+    libreoffice
+    speedcrunch
+    ffmpegthumbnailer
+    networkmanagerapplet
     gksu
     polkit
     rxvt_unicode-with-plugins
     xsel
-    termite
     lxappearance-gtk3
     baobab
     pkgsUnstable.gitAndTools.hub
@@ -53,6 +60,22 @@ in
     travis
     git-cola
     gnome3.file-roller
+    clang
+    slack
+    pkgsUnstable.dropbox
+    watchman
+    dmenu
+    chromium
+    mono
+
+    dejavu_fonts
+    inconsolata
+    liberation_ttf
+    terminus_font
+    ttf_bitstream_vera
+    vistafonts
+    powerline-fonts
+    gnupg
   ] ++ [
     vscode
   ];

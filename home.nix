@@ -19,12 +19,13 @@ let
 in
 {
   home.packages = with pkgs; [
+    pkgsUnstable.insomnia
     htop
     gdb
     mplayer
     vscode
     imagemagick
-    nodejs
+    pkgsUnstable.nodejs-10_x
     git
     entr
     socat
@@ -47,12 +48,11 @@ in
     termite
     lxappearance-gtk3
     baobab
-    gitAndTools.hub
+    pkgsUnstable.gitAndTools.hub
     coin
     travis
     git-cola
     gnome3.file-roller
-    insomnia
   ] ++ [
     vscode
   ];

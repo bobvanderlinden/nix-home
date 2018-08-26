@@ -65,6 +65,7 @@ in
     pkgsUnstable.dropbox
     watchman
     dmenu
+    i3status
     chromium
     mono
 

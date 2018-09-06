@@ -21,6 +21,7 @@ in
 {
   home.packages = with pkgs; [
     pkgsUnstable.insomnia
+    pavucontrol
     fortune
     cowsay
     htop
@@ -69,6 +70,7 @@ in
     i3status
     chromium
     mono
+    blueman
 
     dejavu_fonts
     inconsolata

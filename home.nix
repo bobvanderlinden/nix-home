@@ -16,6 +16,7 @@ let
      ${pkgs.sox}/bin/play --no-show-progress ${coinSound}
   '';
   vscode = pkgsUnstable.vscode;
+  pulseaudio = pkgs.pulseaudioFull;
 in
 {
   home.packages = with pkgs; [
@@ -322,9 +323,9 @@ in
           "${mod}+Shift+r" = "restart";
           "${mod}+Shift+e" = "exec \"i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'\"";
 
-          "XF86AudioRaiseVolume" = "exec ${pkgs.pulseaudioLight}/bin/pactl set-sink-volume 0 +5%";
-          "XF86AudioLowerVolume" = "exec ${pkgs.pulseaudioLight}/bin/pactl set-sink-volume 0 -5%";
-          "XF86AudioMute" = "exec ${pkgs.pulseaudioLight}/bin/pactl set-sink-mute 0 toggle";
+          "XF86AudioRaiseVolume" = "exec ${pulseaudio}/bin/pactl set-sink-volume 0 +5%";
+          "XF86AudioLowerVolume" = "exec ${pulseaudio}/bin/pactl set-sink-volume 0 -5%";
+          "XF86AudioMute" = "exec ${pulseaudio}/bin/pactl set-sink-mute 0 toggle";
 
           "XF86MonBrightnessUp" = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -inc 5";
           "XF86MonBrightnessDown" = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -dec 5";

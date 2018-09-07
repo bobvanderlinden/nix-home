@@ -80,6 +80,7 @@ in
     vistafonts
     powerline-fonts
     gnupg
+    flameshot
   ] ++ [
     vscode
   ];
@@ -262,6 +263,7 @@ in
       volumeicon &
       keepassxc &
       dropbox &
+      flameshot &
     '';
     windowManager.i3 = rec {
       enable = true;
@@ -275,6 +277,7 @@ in
           "${mod}+w" = "exec chromium";
           "${mod}+e" = "exec thunar";
           "${mod}+q" = "exec dmenu_run";
+          "${mod}+Print" = "exec flameshot gui";
           "${mod}+c" = "kill";
 
           "${mod}+Shift+grave" = "move scratchpad";

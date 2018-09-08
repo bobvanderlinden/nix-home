@@ -91,7 +91,7 @@ in
     image/jpg=${pkgs.viewnior}/share/applications/viewnior.desktop
     image/jpeg=${pkgs.viewnior}/share/applications/viewnior.desktop
     text/html=${pkgs.chromium}/share/applications/chromium.desktop
-    text/plain=${pkgs.leafpad}/share/applications/leadpad.desktop
+    text/plain=${pkgs.leafpad}/share/applications/leafpad.desktop
     application/x-shellscript=${vscode}/share/applications/code.desktop
     application/x-python=${vscode}/share/applications/code.desktop
     application/x-php=${vscode}/share/applications/code.desktop

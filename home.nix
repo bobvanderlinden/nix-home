@@ -21,6 +21,7 @@ in
 {
   home.packages = with pkgs; [
     pkgsUnstable.insomnia
+    spotify
     pavucontrol
     fortune
     cowsay
@@ -352,6 +353,7 @@ in
 
         workspace "10" output DVI-I-0
         assign [class="Pidgin"] "10"
+        assign [class="Spotify"] = "10"
 
         for_window [window_role="scratchpad"] move scratchpad
         for_window [class="scratchpad"] move scratchpad

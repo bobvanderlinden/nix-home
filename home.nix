@@ -88,6 +88,7 @@ in
   ];
   home.file.".config/mimeapps.list".text = ''
     [Default Applications]
+    inode/directory=${pkgs.xfce.thunar}/share/applications/Thunar.desktop
     image/png=${pkgs.viewnior}/share/applications/viewnior.desktop
     image/jpg=${pkgs.viewnior}/share/applications/viewnior.desktop
     image/jpeg=${pkgs.viewnior}/share/applications/viewnior.desktop

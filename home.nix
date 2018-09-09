@@ -100,6 +100,8 @@ in
     application/xhtml+xml=${pkgs.chromium}/share/applications/chromium.desktop
     application/pdf=${pkgs.chromium}/share/applications/chromium.desktop
     application/x-compressed-tar=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
+    application/x-gzip=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
+    application/x-xz=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
   '';
   programs.termite = {
     enable = false;

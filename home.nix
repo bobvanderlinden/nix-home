@@ -17,6 +17,7 @@ let
   '';
   vscode = pkgsUnstable.vscode;
   pulseaudio = pkgs.pulseaudioFull;
+  dropbox = pkgsUnstable.dropbox;
 in
 {
   home.packages = with pkgs; [
@@ -65,7 +66,7 @@ in
     gnome3.file-roller
     clang
     slack
-    pkgsUnstable.dropbox
+    dropbox
     watchman
     dmenu
     i3status

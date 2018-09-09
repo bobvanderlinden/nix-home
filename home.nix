@@ -82,6 +82,7 @@ in
     powerline-fonts
     gnupg
     flameshot
+    kitty
   ] ++ [
     vscode
   ];
@@ -100,7 +101,7 @@ in
     application/x-compressed-tar=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
   '';
   programs.termite = {
-    enable = true;
+    enable = false;
     font = "DejaVu Sans Mono for Powerline, 11";
     colorsExtra = ''
       # Base16 Solarized Dark
@@ -203,6 +204,11 @@ in
     disk "/" {
             format = "%avail"
     }
+  '';
+  home.file.".config/kitty/kitty.conf".text = ''
+    background #002B36
+    font_size 11.0
+    input_delay 0
   '';
   fonts.fontconfig.enableProfileFonts = true;
   gtk = {

@@ -312,7 +312,7 @@ in
           { statusCommand = "${pkgs.i3status}/bin/i3status"; }
         ];
         keybindings = let mod = config.modifier; in {
-          "${mod}+t" = "exec termite";
+          "${mod}+t" = "exec kitty";
           "${mod}+w" = "exec chromium";
           "${mod}+e" = "exec thunar";
           "${mod}+q" = "exec dmenu_run";

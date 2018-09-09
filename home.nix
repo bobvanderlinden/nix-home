@@ -214,7 +214,7 @@ in
   gtk = {
     enable = true;
     font = {
-      name = "DejaVu Sans";
+      name = "DejaVu Sans 10";
       package = pkgs.dejavu_fonts;
     };
     iconTheme = {

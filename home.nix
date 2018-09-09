@@ -262,15 +262,46 @@ in
   services.gpg-agent.enable = true;
   services.keybase.enable = true;
   services.network-manager-applet.enable = true;
+  services.flameshot.enable = true;
+
+  systemd.user.services.volumeicon = {
+    Unit = {
+      Description = "Volume Icon";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${pkgs.volumeicon}/bin/volumeicon";
+    };
+  };
+
+  systemd.user.services.dropbox = {
+    Unit = {
+      Description = "Dropbox";
+      After = [ "graphical-session-pre.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+
+    Service = {
+      ExecStart = "${dropbox}/bin/dropbox";
+    };
+  };
+
   xdg.enable = true;
   news.display = "silent";
   xsession = {
     enable = true;
     initExtra = ''
-      volumeicon &
       keepassxc &
-      dropbox &
-      flameshot &
     '';
     windowManager.i3 = rec {
       enable = true;

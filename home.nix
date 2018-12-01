@@ -447,6 +447,7 @@ in
     };
     extraConfig = {
       core.editor = "${vscode}/bin/code --wait";
+      merge.conflictstyle = "diff3";
     };
   };
   home.sessionVariables = {

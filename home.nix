@@ -4,8 +4,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "nixos";
       repo = "nixpkgs";
-      rev = "962570e16d57564db7259c8b525cc5a0bc72fa17";
-      sha256 = "0j63cfibpaczaml0wdz8x54lcyznir4gri61m9scwvi7ylhcxj9z";
+      rev = "c8342644cf1cb683ad4d2d3d0973723b6fe23878";
+      sha256 = "1l1gzxsal4wcs5wdxkv3qb72wsaxmfx5nnx1yixl41ijdanznbcd";
     }
   ) { };
   coinSound = pkgs.fetchurl {

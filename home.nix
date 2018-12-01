@@ -244,7 +244,6 @@ in
         "git"
         "gitfast"
         "github"
-        "nyan"
       ];
       #theme = "frozencow";
       theme = "agnoster";

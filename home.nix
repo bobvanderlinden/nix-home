@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   pkgsUnstable = import (
     pkgs.fetchFromGitHub {
@@ -20,6 +20,15 @@ let
   dropbox = pkgsUnstable.dropbox;
 in
 {
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.firefox.enableAdobeFlash = false;
+  nixpkgs.config.pulseaudio = true;
+  nixpkgs.config.chromium = {
+    proprietaryCodecs = true;
+    enablePepperPDF = true;
+    enableNacl = true;
+  };
+
   home.packages = with pkgs; [
     pkgsUnstable.insomnia
     spotify

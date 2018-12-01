@@ -102,24 +102,7 @@ in
   ] ++ [
     vscode
   ];
-  home.file.".config/mimeapps.list".text = ''
-    [Default Applications]
-    inode/directory=${pkgs.xfce.thunar}/share/applications/Thunar.desktop
-    image/png=${pkgs.viewnior}/share/applications/viewnior.desktop
-    image/jpg=${pkgs.viewnior}/share/applications/viewnior.desktop
-    image/jpeg=${pkgs.viewnior}/share/applications/viewnior.desktop
-    text/html=${pkgs.chromium}/share/applications/chromium.desktop
-    text/plain=${pkgs.leafpad}/share/applications/leafpad.desktop
-    application/x-shellscript=${vscode}/share/applications/code.desktop
-    application/x-python=${vscode}/share/applications/code.desktop
-    application/x-php=${vscode}/share/applications/code.desktop
-    application/xhtml+xml=${pkgs.chromium}/share/applications/chromium.desktop
-    application/pdf=${pkgs.chromium}/share/applications/chromium.desktop
-    application/x-compressed-tar=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
-    application/x-gzip=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
-    application/x-xz=${pkgs.gnome3.file-roller}/share/applications/org.gnome.FileRoller.desktop
-    video/x-matroska=${pkgsUnstable.vlc}/share/applications/vlc.desktop
-  '';
+
   programs.termite = {
     enable = false;
     font = "DejaVu Sans Mono for Powerline, 11";

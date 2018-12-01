@@ -38,7 +38,6 @@ in
     htop
     gdb
     mplayer
-    vscode
     imagemagick
     pkgsUnstable.nodejs-10_x
     git
@@ -67,7 +66,6 @@ in
     rxvt_unicode-with-plugins
     xsel
     lxappearance-gtk3
-    baobab
     pkgsUnstable.gitAndTools.hub
     coin
     travis
@@ -94,6 +92,13 @@ in
     flameshot
     kitty
     pkgsUnstable.vlc
+    webtorrent_desktop
+    pkgsUnstable.steam
+    patchelf
+    docker_compose
+    httpie
+    gimp
+    feh
   ] ++ [
     vscode
   ];

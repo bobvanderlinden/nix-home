@@ -441,6 +441,19 @@ in
     BROWSER = "${pkgs.chromium}/bin/chromium";
   };
   programs.autorandr.enable = true;
+  programs.autorandr.profiles = {
+    single = {
+      fingerprint = {
+        eDP1 = "00ffffffffffff0006af3e300000000000160104951f117802a095995952922621505400000001010101010101010101010101010101002d409061843c30402a330035ae100000180000000f0000000000000000000000000020000000fe0041554f0a202020202020202020000000fe004231343052544e30332e30200a009d";
+      };
+      config = {
+        eDP1 = {
+          enable = true;
+          primary = true;
+        };
+      };
+    };
+  };
   programs.direnv.enable = true;
   programs.htop.enable = true;
   programs.home-manager = {

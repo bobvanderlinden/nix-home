@@ -99,6 +99,8 @@ in
     httpie
     gimp
     feh
+    screen
+    nix-review
   ] ++ [
     vscode
   ];

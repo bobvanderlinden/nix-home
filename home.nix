@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+let nixpkgs = (builtins.fetchTarball (builtins.fromJSON (builtins.readFile ./nixpkgs.lock.json)));
+in
+{ pkgs ? import nixpkgs { }
+, config
+, ...
+}:
 let
   pkgsUnstable = import (
     pkgs.fetchFromGitHub {
@@ -103,7 +108,9 @@ in
     nix-review
   ] ++ [
     vscode
-  ];
+  ] ++ (
+    builtins.map (name: builtins.getAttr name pkgs) (builtins.fromJSON (builtins.readFile ./pkgs.json))
+  );
 
   programs.termite = {
     enable = false;

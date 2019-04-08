@@ -21,83 +21,10 @@ in
   nixpkgs.config.firefox.enableAdobeFlash = false;
   nixpkgs.config.pulseaudio = true;
 
-  home.packages = with pkgs; [
-    pkgs.insomnia
-    spotify
-    pavucontrol
-    fortune
-    cowsay
-    htop
-    gdb
-    mplayer
-    imagemagick
-    pkgs.nodejs-10_x
-    git
-    entr
-    socat
-    file
-    proot
-    qemu
-    awscli
-    darkhttpd
-    xclip
-    jq
-    nmap
-    graphviz
-    xfce.thunar
-    volumeicon
-    keepassxc
-    gnome3.dconf
-    jdk
-    libreoffice
-    speedcrunch
-    ffmpegthumbnailer
-    networkmanagerapplet
-    gksu
-    polkit
-    rxvt_unicode-with-plugins
-    xsel
-    lxappearance-gtk3
-    pkgs.gitAndTools.hub
-    coin
-    travis
-    git-cola
-    gnome3.file-roller
-    clang
-    slack
-    dropbox
-    watchman
-    dmenu
-    i3status
-    chromium
-    mono
-    blueman
-
-    dejavu_fonts
-    inconsolata
-    liberation_ttf
-    terminus_font
-    ttf_bitstream_vera
-    vistafonts
-    powerline-fonts
-    gnupg
-    flameshot
-    kitty
-    pkgs.vlc
-    webtorrent_desktop
-    pkgs.steam
-    patchelf
-    docker_compose
-    httpie
-    gimp
-    feh
-    screen
-    nix-review
-  ] ++ [
-    vscode
-  ] ++ (
-    builtins.map (name: builtins.getAttr name pkgs) (builtins.fromJSON (builtins.readFile ./pkgs.json))
-  );
+  home.packages = with builtins; with pkgs.lib;
+    [ coin ] ++ (
+      map (name: getAttrFromPath (splitString "." name) pkgs) (fromJSON (readFile ./pkgs.json))
+    );
 
   programs.termite = {
     enable = false;

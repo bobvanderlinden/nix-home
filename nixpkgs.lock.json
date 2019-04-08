@@ -1,5 +1,5 @@
 {
-  "name": "nixpkgs",
-  "url": "https://github.com/nixos/nixpkgs/archive/59c5630f605255e7c514062993c29abe4c328a4b.tar.gz",
-  "sha256": "1ficfxd9j48fdx7jmby1vii8dkzyxsq9bba0pwnxp7vqcyhkvr17"
+  "name": "nixpkgs-unstable",
+  "url": "https://github.com/nixos/nixpkgs-channels/archive/0c0954781e257b8b0dc49341795a2fe7d96945a3.tar.gz",
+  "sha256": "05fq11wg8mik4zvfjy2gap59r8n0gfbklsw61r45wlqi7a2zsl0y"
 }

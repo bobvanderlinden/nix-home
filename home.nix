@@ -5,14 +5,6 @@ in
 , ...
 }:
 let
-  pkgsUnstable = import (
-    pkgs.fetchFromGitHub {
-      owner = "nixos";
-      repo = "nixpkgs";
-      rev = "c8342644cf1cb683ad4d2d3d0973723b6fe23878";
-      sha256 = "1l1gzxsal4wcs5wdxkv3qb72wsaxmfx5nnx1yixl41ijdanznbcd";
-    }
-  ) { };
   coinSound = pkgs.fetchurl {
     url = "https://themushroomkingdom.net/sounds/wav/smw/smw_coin.wav";
     sha256 = "18c7dfhkaz9ybp3m52n1is9nmmkq18b1i82g6vgzy7cbr2y07h93";
@@ -20,22 +12,17 @@ let
   coin = pkgs.writeShellScriptBin "coin" ''
      ${pkgs.sox}/bin/play --no-show-progress ${coinSound}
   '';
-  vscode = pkgsUnstable.vscode;
+  vscode = pkgs.vscode;
   pulseaudio = pkgs.pulseaudioFull;
-  dropbox = pkgsUnstable.dropbox;
+  dropbox = pkgs.dropbox;
 in
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.firefox.enableAdobeFlash = false;
   nixpkgs.config.pulseaudio = true;
-  nixpkgs.config.chromium = {
-    proprietaryCodecs = true;
-    enablePepperPDF = true;
-    enableNacl = true;
-  };
 
   home.packages = with pkgs; [
-    pkgsUnstable.insomnia
+    pkgs.insomnia
     spotify
     pavucontrol
     fortune
@@ -44,7 +31,7 @@ in
     gdb
     mplayer
     imagemagick
-    pkgsUnstable.nodejs-10_x
+    pkgs.nodejs-10_x
     git
     entr
     socat
@@ -71,7 +58,7 @@ in
     rxvt_unicode-with-plugins
     xsel
     lxappearance-gtk3
-    pkgsUnstable.gitAndTools.hub
+    pkgs.gitAndTools.hub
     coin
     travis
     git-cola
@@ -96,9 +83,9 @@ in
     gnupg
     flameshot
     kitty
-    pkgsUnstable.vlc
+    pkgs.vlc
     webtorrent_desktop
-    pkgsUnstable.steam
+    pkgs.steam
     patchelf
     docker_compose
     httpie

@@ -189,6 +189,14 @@ in
   services.network-manager-applet.enable = true;
   services.blueman-applet.enable = true;
   services.flameshot.enable = true;
+  services.redshift = {
+    enable = true;
+    latitude = "51.985104";
+    longitude = "5.898730";
+    brightness.day = "1";
+    brightness.night = "0.5";
+    tray = true;
+  };
 
   systemd.user.services.volumeicon = {
     Unit = {

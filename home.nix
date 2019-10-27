@@ -1,7 +1,8 @@
-let nixpkgs = (builtins.fetchTarball (builtins.fromJSON (builtins.readFile ./nixpkgs.lock.json)));
+let
+  nixpkgs = (builtins.fetchTarball (builtins.fromJSON (builtins.readFile ./nixpkgs.lock.json)));
+  pkgs = import nixpkgs { };
 in
-{ pkgs ? import nixpkgs { }
-, config
+{ config
 , ...
 }:
 let
@@ -136,12 +137,12 @@ in
     font_size 11.0
     input_delay 0
   '';
-  fonts.fontconfig.enableProfileFonts = true;
+  fonts.fontconfig.enable = true;
   gtk = {
     enable = true;
     font = {
-      name = "DejaVu Sans 10";
-      package = pkgs.dejavu_fonts;
+      name = "Noto Sans 10";
+      package = pkgs.noto-fonts;
     };
     iconTheme = {
       name = "Adwaita";
@@ -314,8 +315,8 @@ in
         };
 
         startup = [{
-          command = "bash /home/bob/.sessionrc";
-          notification = true;
+          command = "${pkgs.dex}/bin/dex -a";
+          notification = false;
         }];
       };
       extraConfig = ''
@@ -328,7 +329,7 @@ in
 
         for_window [window_role="scratchpad"] move scratchpad
         for_window [class="scratchpad"] move scratchpad
-        for_window [title="Database.kdbx - KeePassXC"] move scratchpad
+        for_window [class="keepassxc"] move scratchpad
         for_window [title="notes - Zim"] move scratchpad
         for_window [class="floating"] floating enable
       '';
@@ -374,8 +375,5 @@ in
   programs.autorandr.enable = true;
   programs.direnv.enable = true;
   programs.htop.enable = true;
-  programs.home-manager = {
-    enable = true;
-    path = https://github.com/rycee/home-manager/archive/release-19.03.tar.gz;
-  };
+  programs.home-manager.enable = true;
 }
